@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudioV - Реклама на видеоэкранах</title>
-    <!-- <style> -->
+    <style>
         /* Общие стили */
         * {
             margin: 0;
@@ -368,8 +368,8 @@
                 margin-bottom: 30px;
             }
         }
-    <!-- </style> -->
-    <link rel="stylesheet" href="css/style.css">
+    </style>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -595,37 +595,37 @@
         </div>
     </footer>
 
-    <!-- <script> -->
+    <script>
    
-        // // Плавная прокрутка к якорям
-        // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        //     anchor.addEventListener('click', function (e) {
-        //         e.preventDefault();
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-        //         const targetId = this.getAttribute('href');
-        //         if (targetId === '#') return;
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-        //         const targetElement = document.querySelector(targetId);
-        //         if (targetElement) {
-        //             window.scrollTo({
-        //                 top: targetElement.offsetTop - 80,
-        //                 behavior: 'smooth'
-        //             });
-        //         }
-        //     });
-        // });
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
         
-        // // Фиксация хедера при скролле
-        // window.addEventListener('scroll', function() {
-        //     const header = document.querySelector('header');
-        //     if (window.scrollY > 100) {
-        //         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        //     } else {
-        //         header.style.boxShadow = 'none';
-        //     }
-        // });
+        // Фиксация хедера при скролле
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
     
-    <!-- </script> -->
-     <script src="js/script.js"></script>
+    </script>
+     
 </body>
 </html>
