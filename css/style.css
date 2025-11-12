@@ -362,3 +362,186 @@ footer {
     margin-bottom: 30px;
   }
 }
+
+/* Адаптивные стили */
+
+/* Планшеты */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .services-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contacts-content {
+        flex-direction: column;
+    }
+    
+    /* Исправления для Header на планшетах */
+    .header-inner {
+        padding: 15px 0;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+    
+    .nav li {
+        margin-left: 20px;
+    }
+    
+    .nav a {
+        font-size: 14px;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: flex;
+    }
+    
+    .nav.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav.active ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .nav.active li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .nav.active a {
+        font-size: 16px;
+        padding: 10px 0;
+        display: block;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        padding: 0 10px;
+        word-wrap: break-word;
+    }
+    
+    .services-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        margin: 20px 0;
+    }
+    
+    .footer-links a {
+        margin: 0 10px;
+    }
+    
+    /* Исправления для Header на мобильных */
+    .header-inner {
+        padding: 12px 0;
+    }
+    
+    .logo img {
+        height: 30px;
+        max-width: 120px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        padding: 0 5px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    /* Дополнительные исправления для Header */
+    .header-inner {
+        padding: 10px 0;
+    }
+    
+    .logo img {
+        height: 25px;
+        max-width: 100px;
+    }
+    
+    .burger-menu {
+        transform: scale(0.9);
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Убедимся, что текст не выходит за пределы */
+    .nav.active a {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.7rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .header-inner {
+        padding: 8px 0;
+    }
+    
+    .logo img {
+        height: 22px;
+        max-width: 90px;
+    }
+    
+    .burger-menu span {
+        width: 20px;
+        height: 2px;
+    }
+}
