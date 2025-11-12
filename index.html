@@ -1,692 +1,673 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudioV - Реклама на видеоэкранах</title>
-    <style>
-      /* Общие стили */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-      }
 
-      body {
-        line-height: 1.6;
-        color: #333;
-      }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Studio V - Реклама на видео-экранах</title>
+        <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-      }
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
 
-      .btn {
-        display: inline-block;
-        background: #ff6b00;
-        color: #fff;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s;
-      }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-      .btn:hover {
-        background: #e55e00;
-      }
+        .btn {
+            display: inline-block;
+            background: #ff6b00;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-      section {
-        padding: 80px 0;
-      }
+        .btn:hover {
+            background: #e55e00;
+        }
 
-      h2 {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: 2.5rem;
-      }
+        section {
+            padding: 80px 0;
+        }
 
-      /* Header */
-      header {
-        background: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
 
-      .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 0;
-      }
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-      .logo {
-        font-size: 1.8rem;
-        font-weight: bold;
-        color: #ff6b00;
-      }
-
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 30px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      nav ul li a:hover {
-        color: #ff6b00;
-      }
-
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("https://via.placeholder.com/1920x1080") no-repeat center
-            center/cover;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        color: #fff;
-        text-align: center;
-      }
-
-      .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-      }
-
-      /* Услуги */
-      .services {
-        background: #f9f9f9;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-
-      .service-card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s;
-      }
-
-      .service-card:hover {
-        transform: translateY(-10px);
-      }
-
-      .service-card i {
-        font-size: 3rem;
-        color: #ff6b00;
-        margin-bottom: 20px;
-      }
-
-      .service-card h3 {
-        margin-bottom: 15px;
-      }
-
-      /* Преимущества */
-      .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-      }
-
-      .benefit-item {
-        text-align: center;
-        padding: 20px;
-      }
-
-      .benefit-item i {
-        font-size: 2.5rem;
-        color: #ff6b00;
-        margin-bottom: 15px;
-      }
-
-      /* Портфолио */
-      .portfolio {
-        background: #f9f9f9;
-      }
-
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-      }
-
-      .portfolio-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 5px;
-        height: 250px;
-      }
-
-      .portfolio-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s;
-      }
-
-      .portfolio-item:hover img {
-        transform: scale(1.1);
-      }
-
-      /* Процесс работы */
-      .process-steps {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-
-      .step {
-        flex: 1;
-        min-width: 200px;
-        text-align: center;
-        padding: 20px;
-        position: relative;
-      }
-
-      .step-number {
-        width: 50px;
-        height: 50px;
-        background: #ff6b00;
-        color: #fff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 15px;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      /* Отзывы */
-      .testimonials {
-        background: #f9f9f9;
-      }
-
-      .testimonial-slider {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .testimonial {
-        background: #fff;
-        padding: 30px;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
-
-      .testimonial img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 15px;
-      }
-
-      /* Контакты */
-      .contact-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-      }
-
-      .contact-info h3 {
-        margin-bottom: 20px;
-      }
-
-      .contact-info p {
-        margin-bottom: 10px;
-      }
-
-      .contact-form input,
-      .contact-form textarea {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      .contact-form textarea {
-        height: 150px;
-      }
-
-      /* Footer */
-      footer {
-        background: #333;
-        color: #fff;
-        padding: 50px 0 20px;
-      }
-
-      .footer-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-        margin-bottom: 30px;
-      }
-
-      .footer-column h3 {
-        margin-bottom: 20px;
-        font-size: 1.2rem;
-      }
-
-      .footer-column ul {
-        list-style: none;
-      }
-
-      .footer-column ul li {
-        margin-bottom: 10px;
-      }
-
-      .footer-column ul li a {
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-column ul li a:hover {
-        color: #ff6b00;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-      }
-
-      .social-links a {
-        color: #fff;
-        font-size: 1.5rem;
-        transition: color 0.3s;
-      }
-
-      .social-links a:hover {
-        color: #ff6b00;
-      }
-
-      .copyright {
-        text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid #444;
-      }
-
-      /* Адаптивность */
-      @media (max-width: 768px) {
         .header-container {
-          flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b00;
         }
 
         nav ul {
-          margin-top: 15px;
+            display: flex;
+            list-style: none;
         }
 
         nav ul li {
-          margin: 0 10px;
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-          font-size: 2.5rem;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
 
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Услуги */
+        .services {
+            background: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #ff6b00;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Преимущества */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: #ff6b00;
+            margin-bottom: 15px;
+        }
+
+        /* Портфолио */
+        .portfolio {
+            background: #f9f9f9;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Процесс работы */
         .process-steps {
-          flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .step {
-          margin-bottom: 30px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
         }
-      }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #ff6b00;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Отзывы */
+        .testimonials {
+            background: #f9f9f9;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        /* Контакты */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff6b00;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff6b00;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .step {
+                margin-bottom: 30px;
+            }
+        }
     </style>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="container header-container">
-        <div class="logo">StudioV</div>
-        <nav>
-          <ul>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#benefits">Преимущества</a></li>
-            <li><a href="#portfolio">Нам доверяют</a></li>
-            <!-- <li><a href="#process">Процесс</a></li> -->
-            <li><a href="#testimonials">Отзывы</a></li>
-            <li><a href="#contact">Контакты</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-content">
-        <h1>Реклама на видеоэкранах</h1>
-        <p>
-          Эффективное продвижение вашего бизнеса с помощью современных
-          видеоэкранов в местах с высокой проходимостью
-        </p>
-        <a href="#contact" class="btn">Получить консультацию</a>
-      </div>
-    </section>
-
-    <!-- Услуги -->
-    <section id="services" class="services">
-      <div class="container">
-        <h2>Наши услуги</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <i class="fas fa-tv"></i>
-            <h3>Размещение рекламы</h3>
-            <p>
-              Размещаем вашу рекламу на видеоэкранах в торговых центрах, на
-              транспортных узлах и других местах с высокой проходимостью.
-            </p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-film"></i>
-            <h3>Изготовление контента</h3>
-            <p>
-              Создаем качественный рекламный контент: видеоролики, анимацию,
-              графику, адаптированную под форматы видеоэкранов.
-            </p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-cogs"></i>
-            <h3>Техническое обслуживание</h3>
-            <p>
-              Обеспечиваем бесперебойную работу оборудования, мониторинг и
-              техническую поддержку видеоэкранов.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section id="benefits" class="benefits">
-      <div class="container">
-        <h2>Почему выбирают нас</h2>
-        <div class="benefits-grid">
-          <div class="benefit-item">
-            <i class="fas fa-eye"></i>
-            <h3>Высокая видимость</h3>
-            <p>
-              Наши экраны расположены в местах с максимальной проходимостью, что
-              гарантирует высокий охват аудитории.
-            </p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-users"></i>
-            <h3>Широкая аудитория</h3>
-            <p>
-              Охватываем различные целевые группы: от пешеходов в центре города
-              до посетителей торговых центров.
-            </p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-bolt"></i>
-            <h3>Современные технологии</h3>
-            <p>
-              Используем только современное оборудование с высоким разрешением и
-              яркостью изображения.
-            </p>
-          </div>
-          <div class="benefit-item">
-            <i class="fas fa-chart-line"></i>
-            <h3>Измеримая эффективность</h3>
-            <p>
-              Предоставляем детальную статистику по охвату и эффективности
-              рекламных кампаний.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Портфолио -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-        <h2>Нам доверяют</h2>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 1"
-            />
-          </div>
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 2"
-            />
-          </div>
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 3"
-            />
-          </div>
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 4"
-            />
-          </div>
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 5"
-            />
-          </div>
-          <div class="portfolio-item">
-            <img
-              src="https://via.placeholder.com/400x300"
-              alt="Пример работы 6"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Процесс работы -->
-    <section id="process" class="process">
-      <div class="container">
-        <h2>Как мы работаем</h2>
-        <div class="process-steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Консультация</h3>
-            <p>
-              Обсуждаем ваши цели и задачи, подбираем оптимальные форматы и
-              локации.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Разработка концепции</h3>
-            <p>Создаем креативную концепцию и медиаплан рекламной кампании.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Производство</h3>
-            <p>
-              Изготавливаем рекламный контент и размещаем его на выбранных
-              экранах.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h3>Запуск и аналитика</h3>
-            <p>
-              Запускаем кампанию и предоставляем отчеты по ее эффективности.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-        <h2>Отзывы клиентов</h2>
-        <div class="testimonial-slider">
-          <div class="testimonial">
-            <img src="https://via.placeholder.com/80" alt="Фото клиента" />
-            <p>
-              "Сотрудничаем с StudioV уже более года. Результаты рекламных
-              кампаний превзошли ожидания - рост узнаваемости бренда составил
-              40%."
-            </p>
-            <h4>Иван Петров, директор по маркетингу "Торговая компания"</h4>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Контакты -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Свяжитесь с нами</h2>
-        <div class="contact-container">
-          <div class="contact-info">
-            <h3>Контактная информация</h3>
-            <p>
-              <i class="fas fa-map-marker-alt"></i> г. Волгодонск, ул. Маршала
-              Кошевогщ, д. 18
-            </p>
-            <p><i class="fas fa-phone"></i> +7 (995) 615-78-94</p>
-            <p><i class="fas fa-envelope"></i> goldenjtck@yandex.ru</p>
-            <p><i class="fas fa-clock"></i> Пн-Пт: 9:00 - 18:00</p>
-          </div>
-          <div class="contact-form">
-            <form>
-              <input type="text" placeholder="Ваше имя" required />
-              <input type="email" placeholder="Ваш email" required />
-              <input type="tel" placeholder="Ваш телефон" />
-              <textarea placeholder="Сообщение" required></textarea>
-              <button type="submit" class="btn">Отправить</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-container">
-          <div class="footer-column">
-            <h3>StudioV</h3>
-            <p>
-              Лидер в области размещения и изготовления рекламы на видеоэкранах.
-            </p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-vk"></i></a>
-              <a href="#"><i class="fab fa-telegram"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container header-container">
+                <div class="logo">Stidio V</div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#benefits">Преимущества</a></li>
+                        <li><a href="#portfolio">Портфолио</a></li>
+                        <!-- <li><a href="#process">Процесс</a></li> -->
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
             </div>
-          </div>
-          <div class="footer-column">
-            <h3>Услуги</h3>
-            <ul>
-              <li><a href="#">Размещение рекламы</a></li>
-              <li><a href="#">Изготовление контента</a></li>
-              <li><a href="#">Техническое обслуживание</a></li>
-              <li><a href="#">Медиапланирование</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Компания</h3>
-            <ul>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Команда</a></li>
-              <li><a href="#">Вакансии</a></li>
-              <li><a href="#">Новости</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Контакты</h3>
-            <ul>
-              <li><a href="#">Контакты</a></li>
-              <li><a href="#">Поддержка</a></li>
-              <li><a href="#">Партнерство</a></li>
-              <li><a href="#">Карта сайта</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="copyright">
-          <p>&copy; 2025 StudioV. Все права защищены.</p>
-        </div>
-      </div>
-    </footer>
+        </header>
 
-    <script>
-      // Плавная прокрутка к якорям
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Реклама на видео-экранах</h1>
+                <p>Эффективное продвижение вашего бизнеса с помощью современных
+                    видеоэкранов в местах с высокой
+                    проходимостью</p>
+                <a href="#contact" class="btn">Получить консультацию</a>
+            </div>
+        </section>
 
-          const targetId = this.getAttribute("href");
-          if (targetId === "#") return;
+        <!-- Услуги -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-tv"></i>
+                        <h3>Размещение рекламы</h3>
+                        <p>Размещаем вашу рекламу на видеоэкранах в торговых
+                            центрах, на транспортных узлах и других местах
+                            с высокой проходимостью.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-film"></i>
+                        <h3>Изготовление контента</h3>
+                        <p>Создаем качественный рекламный контент: видеоролики,
+                            анимацию, графику, адаптированную под
+                            форматы видеоэкранов.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Техническое обслуживание</h3>
+                        <p>Обеспечиваем бесперебойную работу оборудования,
+                            мониторинг и техническую поддержку видеоэкранов.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: "smooth",
+        <!-- Преимущества -->
+        <section id="benefits" class="benefits">
+            <div class="container">
+                <h2>Почему выбирают нас</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-eye"></i>
+                        <h3>Высокая видимость</h3>
+                        <p>Наши экраны расположены в местах с максимальной
+                            проходимостью, что гарантирует высокий охват
+                            аудитории.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Широкая аудитория</h3>
+                        <p>Охватываем различные целевые группы: от пешеходов в
+                            центре города до посетителей торговых
+                            центров.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Современные технологии</h3>
+                        <p>Используем только современное оборудование с высоким
+                            разрешением и яркостью изображения.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Измеримая эффективность</h3>
+                        <p>Предоставляем детальную статистику по охвату и
+                            эффективности рекламных кампаний.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Портфолио -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2>Нам доверяют</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="image/elizabet.png"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/fenix.png"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/kompas.png"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/fincentr.png"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/master.jpg"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/peresvet.png"
+                            alt="name{_}">
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="image/protaxi.png"
+                            alt="name{_}">
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Процесс работы -->
+        <section id="process" class="process">
+            <div class="container">
+                <h2>Как мы работаем</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Консультация</h3>
+                        <p>Обсуждаем ваши цели и задачи, подбираем оптимальные
+                            форматы и локации.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Разработка концепции</h3>
+                        <p>Создаем креативную концепцию и медиаплан рекламной
+                            кампании.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Производство</h3>
+                        <p>Изготавливаем рекламный контент и размещаем его на
+                            выбранных экранах.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Запуск и аналитика</h3>
+                        <p>Запускаем кампанию и предоставляем отчеты по ее
+                            эффективности.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Отзывы клиентов</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <img src="https://via.placeholder.com/80"
+                            alt="Фото клиента">
+                        <p>"Сотрудничаем с VideoAd уже более года. Результаты
+                            рекламных кампаний превзошли ожидания - рост
+                            узнаваемости бренда составил 40%."</p>
+                        <h4>Иван Петров, директор по маркетингу
+                            "Торговая компания"</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Контактная информация</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Волгодонск, ул.
+                            Маршала Кошевого, д. 18</p>
+                        <p><i class="fas fa-phone"></i> +7 (995) 615-78-94</p>
+                        <p><i class="fas fa-envelope"></i> goldenjtck@yandex.ru</p>
+                        <p><i class="fas fa-clock"></i> Пн-Пт: 9:00 - 18:00</p>
+                            <div class="portfolio-item">
+                                <img src="image/map.png"
+                                alt="name{_}">
+                            </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <input type="text" placeholder="Ваше имя" required>
+                            <input type="email" placeholder="Ваш email"
+                                required>
+                            <input type="tel" placeholder="Ваш телефон">
+                            <textarea placeholder="Сообщение"
+                                required></textarea>
+                            <button type="submit" class="btn">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>Studio V</h3>
+                        <p>Лидер в области размещения и изготовления рекламы на
+                            видеоэкранах.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-vk"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Услуги</h3>
+                        <ul>
+                            <li><a href="#">Размещение рекламы</a></li>
+                            <li><a href="#">Изготовление контента</a></li>
+                            <li><a href="#">Техническое обслуживание</a></li>
+                            <li><a href="#">Медиапланирование</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Компания</h3>
+                        <ul>
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="#">Команда</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Новости</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Контакты</h3>
+                        <ul>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Поддержка</a></li>
+                            <li><a href="#">Партнерство</a></li>
+                            <li><a href="#">Карта сайта</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Studio V. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
-          }
         });
-      });
 
-      // Фиксация хедера при скролле
-      window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        if (window.scrollY > 100) {
-          header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-        } else {
-          header.style.boxShadow = "none";
-        }
-      });
+        // Фиксация хедера при скролле
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
     </script>
-  </body>
+    </body>
+
 </html>
